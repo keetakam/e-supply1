@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,7 +11,7 @@
 
     <div class="login">
         <h1>Login</h1>
-        <form action="login_db.php" method="get">
+        <form action="login_db.php" method="post">
             <label for="username">
                 <i class="fas fa-user"></i>
             </label>
@@ -18,6 +19,18 @@
             <input type="text" name="password" placeholder="password" id="password" required>
             <input type="submit" value="login"> 
         </form>
+
+        <p>check status session:</p>
+        
     </div>
+    <?php
+    session_start();
+    if(session_status() == PHP_SESSION_NONE){
+        echo "Session ถูกใช้งาน";
+    }else{
+        echo "Session ยังไม่เริ่ม";
+    }
+    
+?>
 </body>
 </html>

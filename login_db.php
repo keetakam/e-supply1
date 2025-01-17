@@ -2,7 +2,7 @@
 include("connect.php");
 
 session_start();
-if(isset($_GET['username']) && isset($_GET['password'])){
+if(isset($_POST['username']) && isset($_POST['password'])){
     // function validate($data){
     //     $data = trim($data);
     //     $data = stripcslashes($data);
@@ -10,15 +10,19 @@ if(isset($_GET['username']) && isset($_GET['password'])){
     //     return $data;
 
      echo 'get data from login'; 
-    //  echo $Username. $Password;
+  
+
+// $User = $_POST['username'];
+// $Pass = $_POST['password'];
+
 }
 
-$User = $_GET['username'];
-$Pass = $_GET['password'];
+$User = $_POST['username'];
+$Pass = $_POST['password'];
 
 
-echo "data User is $User";
-echo "data password is $Pass";
+echo "data User is : $User";
+echo "data password is: $Pass";
 
 echo "Your can see this message therefore  YourUser or password is not True "
 
@@ -46,11 +50,20 @@ echo "Your can see this message therefore  YourUser or password is not True "
         role
         <?php echo $row['role'];?>
 
-        
+        <?php
+        $_SESSION['role'] = $row['role'];
+        $_SESSION['userID'] = $row['userID']
+         ?>
+
+
    <?php      
-       header("Location: index.html" );
+       header("Location: home.php" );
        exit();
     }
-    // header("Location: index.html" );
+    // sqlsrv_free_stmt( $row);
+    sqlsrv_close($conn);
+
+;
     // exit();
     ?>
+    
