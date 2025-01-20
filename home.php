@@ -29,6 +29,7 @@ include('connect.php')
  <p>Login good username and password</p> 
  <p>get data into session  UserID from DB is: <?php echo $userId; ?> </P>
  <h1>page home1</h>
+
   <div class="container">
     <div class="header"><h2 style="color: brown;">ระบบจัดเก็บพัสดุ: กองพัฒนาระบบการเงินภาคประชาชน สศค.</h2></div>
     <div class="menu">
@@ -39,21 +40,36 @@ include('connect.php')
     </div>
 
     <div class="content"><p>Lorem ipsum odor amet, iquet. Potenti dignissim litora eget mognis ligula lobortis quam ut.</p>
-        <form action="process.php" method="post">
-    <select name ="option" id="option">
-      <option value ="">ทั้งหมด</option>
-      
-      <option value ="1">ว่าง</option>
-      
-      <option value ="2">ถูกยืม</option>
-      
-      <option value ="3">ส่งซ่อม</option>
-      
-      <option value ="4">ส่งคืนn</option>
-  </select>
-    <button type="submit">Submit</button>
+      <form action="process.php" method="post">
+          <select name ="option" id="option">
+            <option value ="">ทั้งหมด</option>
+            <option value ="1">ว่าง</option>
+            <option value ="2">ถูกยืม</option>
+            <option value ="3">ส่งซ่อม</option>
+            <option value ="4">ส่งคืน</option>
+          </select>
+          <button type="submit">Submit</button>
       </form>
-    </div>
+      <p>Lorem ipsum dolor sit amet2.</p>
+
+  <table >
+  <tr>
+    <th>category</th>
+    <th>model</th>
+    <th>registID</th>
+  </tr>
+  <tr>
+    <td>PC</td>
+    <td>PC</td>
+    <td>PC</td>
+  </tr>
+  <tr>
+    <td>Notebook</td>
+    <td>Notebook</td>
+    <td>Notebook</td>
+  </tr>
+</table>
+</div>
     
 
     <div class="menu2"><h2>Support</h2>

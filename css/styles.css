@@ -31,3 +31,6 @@
     grid-area: menu2;
     /* text-align: center; */
   }
+  .container >div.th, td {
+    border:1px solid black;
+  }

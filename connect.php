@@ -30,5 +30,4 @@ if($conn == false){
 else{
     echo "connect DB";
 }
-?>
-
+?> 
