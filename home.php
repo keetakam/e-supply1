@@ -53,16 +53,19 @@ include('connect.php')
 
   <table >
   <tr>
+    <th>NO</th>
     <th>category</th>
     <th>model</th>
     <th>registID</th>
   </tr>
   <tr>
+    <td>1</td>
     <td>PC</td>
     <td>PC</td>
     <td>PC</td>
   </tr>
   <tr>
+    <td>1</td>
     <td>Notebook</td>
     <td>Notebook</td>
     <td>Notebookxxxx</td>
