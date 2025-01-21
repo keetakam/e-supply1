@@ -12,7 +12,6 @@ session_start();
 include('connect.php')
 ?>
 
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -66,7 +65,7 @@ include('connect.php')
   <tr>
     <td>Notebook</td>
     <td>Notebook</td>
-    <td>Notebook</td>
+    <td>Notebookxxxx</td>
   </tr>
 </table>
 </div>

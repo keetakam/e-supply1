@@ -25,7 +25,7 @@
     </div>
     <?php
     session_start();
-    if(session_status() == PHP_SESSION_NONE){
+    if(session_status() == PHP_SESSION_NONE) {
         echo "Session ถูกใช้งาน";
     }else{
         echo "Session ยังไม่เริ่ม";
