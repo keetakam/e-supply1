@@ -19,9 +19,24 @@ include('connect.php')
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>E-Supply</title>
   <link rel="stylesheet" href="./css/styles.css">
+
+  <?php
+    $q = "select * from supply ORDER BY 'registID'";
+    $result = sqlsrv_query($conn,$q);
+  ?>
 </head>
 <body>
- 
+  <?php
+    echo $conn;
+    echo $q;
+  ?> 
+ <?php
+ if($result === false) {
+    trigger_error(print_r(sqlsrv_errors(), true), E_USER_ERROR);
+}
+?>
+    
+
   <!-- <h1>Image</h1> -->
   <img src="./img/20151102_2254.webp" alt="Logo" width="500" height="200">
 
@@ -53,26 +68,40 @@ include('connect.php')
 
   <table >
   <tr>
-    <th>NO</th>
+    <th>ลำดับ</th>
     <th>category</th>
     <th>model</th>
     <th>registID</th>
+    <th>สถานะพัสดุ</th>
   </tr>
+    <?php
+      $num = 0;
+      while($row = sqlsrv_fetch_array($result, SQLSRV_FETCH_ASSOC))
+      {
+      ?>
+
+<!-- 
   <tr>
     <td>1</td>
     <td>PC</td>
     <td>PC</td>
     <td>PC</td>
-  </tr>
-  <tr>
-    <td>1</td>
-    <td>Notebook</td>
-    <td>Notebook</td>
-    <td>Notebookxxxx</td>
-  </tr>
+  </tr> -->
+
+    <tr>  
+        <td><?php echo $num+=1 ;?></td> 
+        <td><?php echo $row['category'];?></td>
+        <td><?php echo $row['model'];?></td>
+        <td><?php echo $row['registID'];?></td>
+        <td><?php echo $row['activeState'];?></td>
+      </tr>
+ <?php
+      }
+      ?>
 </table>
 </div>
-    
+      
+
 
     <div class="menu2"><h2>Support</h2>
     <a href="#">คู่มือการใช้งาน</a><br>

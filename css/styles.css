@@ -1,18 +1,5 @@
 
 .container {
-<<<<<<< HEAD
-  display: grid;
-  grid-template-areas:
-    "header header"
-    "menu content"
-    "menu2 content";
-
-  grid-template-columns: 1fr 3fr;
-  gap: 5px;
-  background-color: #f3c221;
-  padding: 5px;
-}
-=======
     display: grid;
     grid-template-areas:
       "header header"
@@ -24,10 +11,8 @@
     background-color: #FAEBD7;
     padding: 5px;
   }
->>>>>>> 53b0549a9868fbf302e2f8c2cf7b0eed742f9f7e
   .container > div {
     background-color: rgba(255, 255, 255, 0.8);
-
     padding: 10px;
   }
   .container > div.header {
@@ -48,9 +33,6 @@
     grid-area: menu2;
     /* text-align: center; */
   }
-<<<<<<< HEAD
-
-=======
   .container >div>table {
     font-family: Arial, Helvetica, sans-serif;
     border-collapse: collapse;
@@ -62,4 +44,3 @@
     color: white;
   }
   
->>>>>>> 53b0549a9868fbf302e2f8c2cf7b0eed742f9f7e
