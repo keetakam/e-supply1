@@ -54,8 +54,8 @@ include('connect.php')
     </div>
 
     <div class="content"><p>Lorem ipsum odor amet, iquet. Potenti dignissim litora eget mognis ligula lobortis quam ut.</p>
-      <form action="process.php" method="post">
-          <select name ="option" id="option">
+      <form action="home.php" method="POST">
+          <select name ="type" id="type">
             <option value ="">ทั้งหมด</option>
             <option value ="1">ว่าง</option>
             <option value ="2">ถูกยืม</option>
@@ -64,8 +64,6 @@ include('connect.php')
           </select>
           <button type="submit">Submit</button>
       </form>
-      <p>Lorem ipsum dolor sit amet2.</p>
-
   <table >
   <tr>
     <th>ลำดับ</th>
@@ -80,14 +78,6 @@ include('connect.php')
       {
       ?>
 
-<!-- 
-  <tr>
-    <td>1</td>
-    <td>PC</td>
-    <td>PC</td>
-    <td>PC</td>
-  </tr> -->
-
     <tr>  
         <td><?php echo $num+=1 ;?></td> 
         <td><?php echo $row['category'];?></td>
@@ -99,6 +89,29 @@ include('connect.php')
       }
       ?>
 </table>
+
+      <?php
+      if($_SERVER['REQUEST_METHOD']=='POST'){
+
+        $aa = $_POST['type'];
+        echo "you select:" .htmlspecialchars($aa);
+      
+        $q2 = "select * from supply where activeState = ?";
+        $params = array($aa);
+        $stmt = sqlsrv_query($conn,$q2,$params);
+        
+        if($stmt===false){
+          die(print_r(sqlsrv_errors(), true));
+        }
+          if($row2 = sqlsrv_fetch_array($stmt, SQLSRV_FETCH_ASSOC)){
+            echo "user " .htmlspecialchars($row2['activeState']) . "<br>"; 
+          }else
+           echo "nNo";
+
+      }
+      ?>
+
+ 
 </div>
       
 
