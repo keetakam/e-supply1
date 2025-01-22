@@ -35,8 +35,6 @@ include('connect.php')
     trigger_error(print_r(sqlsrv_errors(), true), E_USER_ERROR);
 }
 ?>
-    
-
   <!-- <h1>Image</h1> -->
   <img src="./img/20151102_2254.webp" alt="Logo" width="500" height="200">
 
@@ -61,10 +59,17 @@ include('connect.php')
             <option value ="2">ถูกยืม</option>
             <option value ="3">ส่งซ่อม</option>
             <option value ="4">ส่งคืน</option>
+            <option value ="testNData">testNOdata</option>
+          </select>
+          <select name ="model" id="model">
+          <option value ="">ทั้งหมด</option>
+            <option value ="pc">pc</option>
+            <option value ="note">note</option>
           </select>
           <button type="submit">Submit</button>
       </form>
-  <table >
+
+  <table>
   <tr>
     <th>ลำดับ</th>
     <th>category</th>
@@ -77,7 +82,6 @@ include('connect.php')
       while($row = sqlsrv_fetch_array($result, SQLSRV_FETCH_ASSOC))
       {
       ?>
-
     <tr>  
         <td><?php echo $num+=1 ;?></td> 
         <td><?php echo $row['category'];?></td>
@@ -89,12 +93,12 @@ include('connect.php')
       }
       ?>
 </table>
-
+<br>
       <?php
       if($_SERVER['REQUEST_METHOD']=='POST'){
 
         $aa = $_POST['type'];
-        echo "you select:" .htmlspecialchars($aa);
+        echo "you select ++:" .htmlspecialchars($aa) ;
       
         $q2 = "select * from supply where activeState = ?";
         $params = array($aa);
@@ -104,19 +108,38 @@ include('connect.php')
           die(print_r(sqlsrv_errors(), true));
         }
           if($row2 = sqlsrv_fetch_array($stmt, SQLSRV_FETCH_ASSOC)){
-            echo "user " .htmlspecialchars($row2['activeState']) . "<br>"; 
+            echo "= your value sent from option is :" .htmlspecialchars($row2['activeState']) . "<br>"; 
           }else
-           echo "nNo";
-
+           echo "= You select NO+DATA";
       }
       ?>
-
- 
-</div>
+      <br>
       
+      <br>
 
+      <?php
+      $gettype = $_POST['type'];echo $gettype;
+      $getmodel = $_POST['model'];echo $getmodel;
+      ?>
+      <br>
+    
 
-    <div class="menu2"><h2>Support</h2>
+  <?php
+   
+        $gettype2 = $_POST['type'];
+        $q3 ="select * from supply where activeState = '?' ";
+        $params2 = array($gettype2);
+        $stmt2 = sqlsrv_query($conn,$q3,$params2);
+        echo "table filter here";
+
+        if($stmt2 ===false){
+          trigger_error(print_r(sqlsrv_errors(), true), E_USER_ERROR);
+        }
+      ?>
+     
+
+</div>
+    <div class="menu_2"><h2>Support</h2>
     <a href="#">คู่มือการใช้งาน</a><br>
     <a href="#">แก้ไขข้อมูล</a>
     <br>
