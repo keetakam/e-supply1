@@ -21,7 +21,7 @@ include('connect.php')
   <link rel="stylesheet" href="./css/styles.css">
 
   <?php
-    $q = "select * from supply ORDER BY 'registID'";
+    $q = "select * from supply where activeState = '1' ORDER BY 'registID'";
     $result = sqlsrv_query($conn,$q);
   ?>
 </head>
@@ -52,6 +52,8 @@ include('connect.php')
     </div>
 
     <div class="content"><p>Lorem ipsum odor amet, iquet. Potenti dignissim litora eget mognis ligula lobortis quam ut.</p>
+    <!-- <input type="text" name ="search_bar" id="search_bar" placeholder="Search something" > -->
+
       <form action="home.php" method="POST">
           <select name ="type" id="type">
             <option value ="">ทั้งหมด</option>
@@ -114,7 +116,7 @@ include('connect.php')
       }
       ?>
       <br>
-      
+
       <br>
 
       <?php
@@ -130,13 +132,25 @@ include('connect.php')
         $q3 ="select * from supply where activeState = '?' ";
         $params2 = array($gettype2);
         $stmt2 = sqlsrv_query($conn,$q3,$params2);
-        echo "table filter here";
+        // echo "table filter here";
 
         if($stmt2 ===false){
           trigger_error(print_r(sqlsrv_errors(), true), E_USER_ERROR);
         }
       ?>
-     
+          <input type="text" name ="search_bar" id="search_bar" placeholder="Search something" >
+
+      <table>
+        <tr>
+          <th>aaahhh</td>
+      </tr>
+        <tr>
+          <td>aaaxx</td>
+        </tr>
+      <tbody id="tbody">
+        <?php include "client_record.php";?>
+      </tbody>
+      </table>
 
 </div>
     <div class="menu_2"><h2>Support</h2>
@@ -149,6 +163,7 @@ include('connect.php')
 
   </div>
   <p>พัฒนาโดย: ฝ่ายสาระสนเทศ:กองพัฒนาระบบการเงินภาคประชาชน สศค.</p>
-  </body>
+      <script src="./js/search.js"></script>
+</body>
 </html>
 
