@@ -5,7 +5,7 @@ searchBar.onkeyup =()=>{
     
     let xhr = new XMLHttpRequest();
     xhr.open("POST", "client_search.php", true);
-    XPathResult.onload = ()=>{
+    Xhr.onload = ()=>{
 
         if(xhr.readyState === XMLHttpRequest.DONE){
            alert (XMLHttpRequest);
