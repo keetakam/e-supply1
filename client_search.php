@@ -8,20 +8,16 @@ $searchTerm = $_POST['searchTerm'];
 
 $q = sqlsrv_query($conn,"select * from supply
     where( category LIKE '%{$searchTerm}%' OR
-            brand LIKE '%{'$searchTrem}%' 
-    )");
+            brand LIKE '%{'$searchTerm}%' )");
 
 
 $output = "";
-if(sqlsrv_num_rows($q) >0){
-    while($row = SQLSRV_FETCH_ASSOC($q)){
+ while($row = sqlsrv_fetch_array($q, SQLSRV_FETCH_ASSOC )){
         $output .= '<tr>
-        <td>'.$row['registID'].'</td>
-        <td>'.$row['registID'].'</td>
+        <td>'.$row['category'].'</td>
+        <td>'.$row['model'].'</td>
         </tr>';
     }
-}else{
-    $output .='No Client Are';
 }
     echo $output;
 
