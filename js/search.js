@@ -5,10 +5,10 @@ searchBar.onkeyup =()=>{
     
     let xhr = new XMLHttpRequest();
     xhr.open("POST", "client_search.php", true);
-    Xhr.onload = ()=>{
-
+    xhr.onload = ()=>{
+            console
         if(xhr.readyState === XMLHttpRequest.DONE){
-           alert (XMLHttpRequest);
+        //    alert (xhr.status);
 
             if(xhr.status === 200){
                 let data = xhr.response;
@@ -16,10 +16,10 @@ searchBar.onkeyup =()=>{
 
             }
         }
-    }
 
-    
+    }    
+
     xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded");
     xhr.send("searchTerm=" + searchTerm);
-    console.log ("xxx");
+    // console.log ("send from js");
 }

@@ -143,6 +143,10 @@ include('connect.php')
       <table>
         <tr>
           <th>aaahhh</td>
+          <th>aaahhh</td>
+          <th>aaahhh</td>
+          <th>aaahhh</td>
+
       </tr>
         <tr>
           <td>aaaxx</td>

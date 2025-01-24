@@ -9,6 +9,10 @@ $output = "";
         $output .='<tr>
      
         <td>'. $row['category']; '</td>
+        <td>'. $row['category']; '</td>
+        <td>'. $row['category']; '</td>
+        <td>'. $row['category']; '</td>
+
         </tr>';
     }
 
